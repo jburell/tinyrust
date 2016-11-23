@@ -34,5 +34,5 @@ ENTRY=$(nm -f posix payload | grep '^main ' | awk '{print $3}')
 nasm -f bin -o tinyrust -D entry=0x$ENTRY elf.s
 
 chmod +x tinyrust
-hd tinyrust
+#hd tinyrust
 wc -c tinyrust
