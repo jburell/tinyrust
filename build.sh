@@ -22,12 +22,12 @@ rustc tinyrust.rs \
     -O -C no-stack-check -C relocation-model=static \
     -L syscall.rs/target/release
 
-ar x libtinyrust.rlib tinyrust.o
+ar x libtinyrust.rlib tinyrust.0.o
 
-objdump -dr tinyrust.o
+objdump -dr tinyrust.0.o
 echo
 
-ld --gc-sections -e main -T script.ld -o payload tinyrust.o
+ld --gc-sections -e main -T script.ld -o payload tinyrust.0.o
 objcopy -j combined -O binary payload payload.bin
 
 ENTRY=$(nm -f posix payload | grep '^main ' | awk '{print $3}')
