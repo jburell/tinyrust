@@ -1,10 +1,6 @@
 #![crate_type="rlib"]
-#![feature(core)]
-
 #[macro_use]
 extern crate syscall;
-
-use std::{mem};
 
 fn exit(n: usize)  {
     unsafe {

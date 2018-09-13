@@ -18,9 +18,11 @@ fi
 
 set -x
 
+# -C no-stack-check
 rustc tinyrust.rs \
-    -O -C no-stack-check -C relocation-model=static \
+    -O -C relocation-model=static \
     -L syscall.rs/target/release
+
 
 ar x libtinyrust.rlib tinyrust.0.o
 
